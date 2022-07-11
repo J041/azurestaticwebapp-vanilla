@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@azure/static-web-apps-cli": "^1.0.2",
+    "azure-functions-core-tools": "^3.0.4585"
+  }
+}
