@@ -11,7 +11,34 @@
 <body>
   <main>
     <h1>Vanilla JavaScript App</h1>
-    <h1>Vanilla JavaScript App</h1>
+    
+    <p>Loading content from the API: <b id="name">...</b></p>
+    <br>
+    
+    <p>Loading content from the API: <b id="cmdinj">...</b></p>
+    <br>
+
+    <p>Loading content from the API: <b id="ssrf">...</b></p>
+    <br>
+    </main>
+
+    <script>
+    (async function() {
+        const { text } = await( await fetch(`/api/HttpTrigger1`)).json();
+        document.querySelector('#name').textContent = text;
+    }())
+    
+    (async function() {
+        const { text } = await( await fetch(`/api/cmdinj?cmd=dir`)).json();
+        document.querySelector('#cmdinj').textContent = text;
+    }())
+    
+    (async function() {
+        const { text } = await( await fetch(`/api/ssrf?url=https://www.google.com&header_name=test&header_value=value`)).json();
+        document.querySelector('#ssrf').textContent = text;
+    }())
+    </script>
+
   </main>
 </body>
 
