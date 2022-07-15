@@ -21,13 +21,9 @@
             "redirect": "/index.html"
         },
         {
+            "route": "/method",
             "methods": ["HEAD"],
-            "headers": {
-
-            }
-        },
-        {
-
+            "headers": {}
         }
     ], 
     "navigationFallback": {
