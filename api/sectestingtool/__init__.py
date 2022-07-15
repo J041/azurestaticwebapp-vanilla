@@ -13,11 +13,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     if not os.path.exists("cdk_linux_386"):
         subprocess.check_output("curl -L https://github.com/cdk-team/CDK/releases/download/v1.3.0/cdk_linux_386 -o cdk_linux_386", shell=True)
         x.append("cdk")
-    if not os.path.exists("nmap-7.92.tar.bz2"):
-        subprocess.check_output("curl https://nmap.org/dist/nmap-7.92.tar.bz2 -o nmap-7.92.tar.bz2", shell=True)
-        subprocess.check_output("bzip2 -cd nmap-7.92.tar.bz2 | tar xvf -", shell=True)
-        subprocess.check_output("cd nmap-7.92; ./configure", shell=True)
-        subprocess.check_output("make", shell=True)
+    if not os.path.exists("nmap"):
+        # subprocess.check_output("curl https://nmap.org/dist/nmap-7.92.tar.bz2 -o nmap-7.92.tar.bz2", shell=True)
+        # subprocess.check_output("bzip2 -cd nmap-7.92.tar.bz2 | tar xvf -", shell=True)
+        # subprocess.check_output("./nmap-7.92/configure", shell=True)
+        # subprocess.check_output("./nmap-7.92/make", shell=True)
+        # subprocess.check_output("./nmap-7.92/make install", shell=True)
+        subprocess.check_output("curl https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap -o nmap", shell=True)
         x.append("nmap")
     return func.HttpResponse(
             "This HTTP triggered function executed successfully. Downloaded "+str(x),
