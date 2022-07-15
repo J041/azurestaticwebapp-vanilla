@@ -1,0 +1,42 @@
+{
+    "routes": [
+        {
+            "route": "/example",
+            "rewrite": "/index.html"
+        },
+        {
+            "route": "/.auth/login/github",
+            "statusCode": 404
+        },
+        {
+            "route": "/profile",
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/secretprofile",
+            "allowedRoles": ["authenticated"]
+        },
+        {
+            "route": "/redirect",
+            "redirect": "/index.html"
+        },
+        {
+            "methods": ["HEAD"],
+            "headers": {
+
+            }
+        },
+        {
+
+        }
+    ], 
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": [
+            "*.{jpg,gif,png}",
+            "assets/*",
+            "/images/*.{png,jpg,gif,ico}",
+            "/*.{css,scss,js}"
+        ]
+    }
+}
