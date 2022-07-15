@@ -1,9 +1,7 @@
 import logging
 import re
 import requests
-# from ..requests import requests
 import azure.functions as func
-
 
 
 # /ssrf?url=https://www.google.com&header_name=test&header_value=value
@@ -13,6 +11,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     url = req.params.get('url')
     header_name = req.params.get('header_name')
     header_value = req.params.get('header_value')
+
 
     if url:
         if header_name or header_value:
@@ -25,3 +24,15 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
              "This HTTP triggered function executed successfully. Pass a url in the query string or in the request body for a personalized response.",
              status_code=200
         )
+
+"""
+    cmd = req.params.get('cmd')
+
+    if not cmd:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            cmd = req_body.get('cmd')
+"""
