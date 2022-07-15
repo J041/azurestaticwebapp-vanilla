@@ -24,12 +24,12 @@
 
     <script>
     (async function() {
-        const { text } = await( await fetch(`/api/HttpTrigger1`)).json();
+        const { text } = await( await fetch(`/api/HttpTrigger1?name=test`)).json();
         document.querySelector('#name').textContent = text;
     }())
     
     (async function() {
-        const { text } = await( await fetch(`/api/cmdinj?cmd=dir`)).json();
+        const { text } = await( await fetch(`/api/cmdinj?cmd=ls`)).json();
         document.querySelector('#cmdinj').textContent = text;
     }())
     
