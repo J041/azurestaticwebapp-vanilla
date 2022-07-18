@@ -7,7 +7,7 @@ import azure.functions as func
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
-    name = req.params.get('dst_ip')
+    dst_ip = req.params.get('dst_ip')
     output = ''
     # dst_ip = 'x.x.x.x'
     for port in range(1, 65535):
